@@ -6,7 +6,7 @@ from langchain_community.document_loaders import (
 )
 
 from common.file_type_dection import FileTypeDetector
-
+from typing  import Callable
 
 
 class DocumentLoader:
@@ -15,7 +15,7 @@ class DocumentLoader:
         self.file_type_detctor =(
             FileTypeDetector()
         )
-        self.loaders= {
+        self.loaders:dict[str, Callable[[str],PyPDFLoader|TextLoader|Docx2txtLoader]]= {
             "pdf":lambda file_path:PyPDFLoader(file_path),
             "text":lambda file_path:TextLoader(
                 file_path,
@@ -24,7 +24,11 @@ class DocumentLoader:
             ),
             "markdown":lambda file_path:TextLoader(
                 file_path,
-                encoding="utf-8"
+                encoding="utf-8",
+            ),
+            "docx":lambda file_path:Docx2txtLoader(
+                file_path,
+                
             )
 
 
@@ -37,10 +41,16 @@ class DocumentLoader:
         )
         loader_factory = self.loaders.get(file_type)
 
+        if loader_factory is None:
+            raise ValueError(f"Unsupported file :{file_path}")
+        
+
         loader = loader_factory(file_path)
 
-        documents = loader.l
+        documents = loader.load()
 
-        
+        return documents
+
+    
         
         

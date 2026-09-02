@@ -9,8 +9,9 @@ class FileTypeDetector:
         ".docx":"documents"
     }
 
-    def detect_file(self,file_path:Path)->str:
-        extension = file_path.suffix.lower()
+    def detect_file(self,file_path:str)->str:
+        path= Path(file_path)
+        extension = path.suffix.lower()
         file_type = self.SUPPORTED_FILE_EXTENSIONS.get(
             extension
             )
@@ -19,4 +20,5 @@ class FileTypeDetector:
                 f"Unsupportted file  type: {extension}"
             )
         return file_type
-    
+
+        
