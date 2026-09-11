@@ -1,3 +1,203 @@
-*/__pycache__/
+# ============================================================
+# Python
+# ============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ============================================================
+# Virtual environments
+# ============================================================
 .venv/
-.vscode/*
+venv/
+ENV/
+env/
+.venv-wsl/
+vitrualenv/          # <- your spelling, ignore it too
+virtualenv/
+
+# ============================================================
+# Packaging / tooling
+# ============================================================
+.python-version
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+.hypothesis/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+.ruff_cache/
+.uv/
+uv.lock.lock
+
+# ============================================================
+# Environment files — NEVER commit secrets
+# ============================================================
+.env
+.env.*
+!.env.example
+*.env.local
+secrets.yaml
+secrets.yml
+
+# ============================================================
+# IDE / editors
+# ============================================================
+.vscode/
+!.vscode/settings.json.example
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.spyderproject
+.spyproject
+.abstractions/
+
+# ============================================================
+# OS noise
+# ============================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ============================================================
+# Logs
+# ============================================================
+*.log
+logs/
+log/
+*.log.*
+
+# ============================================================
+# FastAPI / Uvicorn runtime
+# ============================================================
+uploads/           # user-uploaded documents (never commit)
+data/
+tmp/
+temp/
+.celerybeat-schedule
+celerybeat.pid
+
+# ============================================================
+# Vector DB (Qdrant) local data
+# ============================================================
+qdrant_storage/
+qdrant_data/
+snapshots/
+*.snapshot
+
+# ============================================================
+# Redis local dumps
+# ============================================================
+dump.rdb
+appendonly.aof
+appendonlydir/
+
+# ============================================================
+# ML / Model caches — these are HUGE, never commit
+# ============================================================
+.cache/
+.cache/huggingface/
+.huggingface/
+models/
+model_cache/
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+*.gguf
+*.ckpt
+*.h5
+
+# sentence-transformers / transformers
+sentence_transformers_cache/
+transformers_cache/
+
+# ============================================================
+# Ollama
+# ============================================================
+.ollama/
+ollama_data/
+
+# ============================================================
+# Jupyter (if you use notebooks for experiments)
+# ============================================================
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+# ============================================================
+# Docker
+# ============================================================
+docker-compose.override.yml
+.docker/
+docker/data/
+
+# ============================================================
+# Test / coverage artifacts
+# ============================================================
+htmlcov/
+coverage.xml
+*.cover
+*.py,cover
+nosetests.xml
+junit.xml
+
+# ============================================================
+# PyInstaller / compiled artifacts (edge cases)
+# ============================================================
+*.manifest
+*.spec
+*.dll
+*.exe
+*.pyd
+
+# ============================================================
+# Project-specific (adjust to your layout)
+# ============================================================
+# If you ever add a frontend subfolder
+frontend/node_modules/
+frontend/dist/
+frontend/.next/
+frontend/build/
+
+# BM25 index persisted to disk (rebuildable)
+bm25_index/
+*.bm25
+*.pkl
